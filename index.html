@@ -42,10 +42,11 @@ border: 1px solid var(--glass-border); border-radius: 25px; box-shadow: 0 10px 3
 .nav-links { display: flex; gap: 5px; }
 .nav-links a { color: var(--text); font-weight: 700; font-size: 14px; cursor: pointer; padding: 8px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
 .nav-links a:hover { background: var(--hover); }
-.header-controls { display: flex; align-items: center; gap: 10px; }
-.icon-btn { background: none; border: none; cursor: pointer; color: var(--text); padding: 5px; display: flex; }
-.icon-btn svg { width: 24px; height: 24px; transition: transform 0.3s; }
+.header-controls { display: flex; align-items: center; gap: 8px; }
+.icon-btn { background: none; border: none; cursor: pointer; color: var(--text); padding: 5px; display: flex; align-items: center; justify-content: center; }
+.icon-btn svg { width: 22px; height: 22px; transition: transform 0.3s; }
 .icon-btn:hover svg { transform: scale(1.1); }
+.lang-btn { font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 13px; padding: 6px 10px; border-radius: 10px; background: var(--card); border: 1px solid var(--glass-border); }
 main { width: 100%; max-width: 800px; margin-top: 100px; padding: 20px; display: flex; flex-direction: column; gap: 40px; z-index: 1; }
 .page { display: none; flex-direction: column; gap: 40px; }
 .page.active { display: flex; animation: pageFadeIn 0.4s ease-out forwards; }
@@ -114,14 +115,16 @@ input:checked + .slider:before { transform: translateX(20px); }
 .high-contrast .bio-section, .high-contrast .action-btn, .high-contrast header, .high-contrast .album-card, .high-contrast .bandlink-btn { border: 2px solid var(--text) !important; }
 </style>
 </head>
+  <meta name="google-site-verification" content="PYiSoTXNTOrGX1Wm54UwSFmwMYLalW_LYd_V82DhMXo" />
 <body>
 <header class="no-select">
 <div class="nav-logo" onclick="switchPage('home')"><span class="nav-logo-text">DG</span></div>
 <div class="nav-links">
-<a onclick="switchPage('home')">Главная</a>
-<a onclick="switchPage('releases')">Релизы</a>
+<a id="nav-home" onclick="switchPage('home')">Главная</a>
+<a id="nav-releases" onclick="switchPage('releases')">Релизы</a>
 </div>
 <div class="header-controls">
+<button class="icon-btn lang-btn" onclick="toggleLanguage()" id="lang-btn">EN</button>
 <button class="icon-btn" onclick="openModal('settings-modal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
 <button class="icon-btn" onclick="toggleTheme()">
 <svg class="icon-moon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -150,24 +153,23 @@ input:checked + .slider:before { transform: translateX(20px); }
 <div class="bandlink-btn" onclick="openModal('bandlink-modal')"><img src="bandlink.png" alt="BandLink" loading="lazy"><span>BandLink</span></div>
 </div>
 <div class="bio-section anim-scroll">
-<h2 class="bio-title no-select">О нас</h2>
-<p class="bio-text">Delta Gang — это начинающая музыкальная рэп группа из России. За свой небольшой период существования она уже имеет небольшой альбом "Hustle Stars", выпущенный 28 октября 2026 года. Её участники подростки, которые только начинают свой музыкальный путь и которые уже готовы поделиться своими начинаниями.</p>
+<h2 id="bio-title" class="bio-title no-select">О нас</h2>
+<p id="bio-text" class="bio-text">Delta Gang — это начинающая музыкальная рэп группа из России. За свой небольшой период существования она уже имеет небольшой альбом "Hustle Stars", выпущенный 28 октября 2026 года. Её участники подростки, которые только начинают свой музыкальный путь и которые уже готовы поделиться своими начинаниями.</p>
 </div>
-<div class="contact-section no-select anim-scroll"><a href="mailto:deltagangbang@gmail.com" class="email-btn">Связаться с нами</a></div>
-<div class="copyright no-select">© Delta Gang, 2026</div>
+<div class="contact-section no-select anim-scroll"><a id="contact-btn" href="mailto:deltagangbang@gmail.com" class="email-btn">Связаться с нами</a></div>
 </div>
 <div id="releases" class="page">
-<div class="artist-header anim-scroll"><h1 class="artist-name no-select" style="font-size: 36px;">Релизы</h1></div>
+<div class="artist-header anim-scroll"><h1 id="releases-title" class="artist-name no-select" style="font-size: 36px;">Релизы</h1></div>
 <div class="releases-grid no-select anim-scroll">
 <div class="album-card">
 <div class="album-cover"><img src="cover.png" alt="Hustle Stars Cover" draggable="false" loading="lazy"></div>
 <h3 class="album-title">Hustle Stars</h3>
 <p class="album-year">2026 • Album</p>
-<div class="album-notice">Заглушка (релиз 28.10)</div>
+<div id="album-notice" class="album-notice">Заглушка (релиз 28.10)</div>
 </div>
 </div>
-<div class="copyright no-select">© Delta Gang, 2026</div>
 </div>
+<div class="copyright no-select">© Delta Gang, 2027</div>
 </main>
 <div id="settings-modal" class="modal-overlay">
 <div class="modal-content">
@@ -206,6 +208,35 @@ var elHtml = document.documentElement;
 var elMoon = document.querySelector('.icon-moon');
 var elSun = document.querySelector('.icon-sun');
 
+var translations = {
+ru: {
+navHome: "Главная", navReleases: "Релизы", bioTitle: "О нас",
+bioText: "Delta Gang — это начинающая музыкальная рэп группа из России. За свой небольшой период существования она уже имеет небольшой альбом \"Hustle Stars\", выпущенный 28 октября 2026 года. Её участники подростки, которые только начинают свой музыкальный путь и которые уже готовы поделиться своими начинаниями.",
+contactBtn: "Связаться с нами", releasesTitle: "Релизы", albumNotice: "Заглушка (релиз 28.10)", langBtn: "EN"
+},
+en: {
+navHome: "Home", navReleases: "Releases", bioTitle: "About Us",
+bioText: "Delta Gang is an emerging rap group from Russia. In its short existence, it already has a small album \"Hustle Stars\", released on October 28, 2026. Its members are teenagers who are just starting their musical journey and are ready to share their beginnings.",
+contactBtn: "Contact Us", releasesTitle: "Releases", albumNotice: "Placeholder (release 28.10)", langBtn: "RU"
+}
+};
+var currentLang = localStorage.getItem('lang') || 'ru';
+
+function applyLanguage(lang) {
+currentLang = lang;
+var t = translations[lang];
+if (document.getElementById('nav-home')) document.getElementById('nav-home').innerText = t.navHome;
+if (document.getElementById('nav-releases')) document.getElementById('nav-releases').innerText = t.navReleases;
+if (document.getElementById('bio-title')) document.getElementById('bio-title').innerText = t.bioTitle;
+if (document.getElementById('bio-text')) document.getElementById('bio-text').innerText = t.bioText;
+if (document.getElementById('contact-btn')) document.getElementById('contact-btn').innerText = t.contactBtn;
+if (document.getElementById('releases-title')) document.getElementById('releases-title').innerText = t.releasesTitle;
+if (document.getElementById('album-notice')) document.getElementById('album-notice').innerText = t.albumNotice;
+if (document.getElementById('lang-btn')) document.getElementById('lang-btn').innerText = t.langBtn;
+try { localStorage.setItem('lang', lang); } catch(e) {}
+}
+function toggleLanguage() { applyLanguage(currentLang === 'ru' ? 'en' : 'ru'); }
+
 function switchPage(pageId) {
 var pages = document.querySelectorAll('.page');
 for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
@@ -214,7 +245,6 @@ if (target) target.classList.add('active');
 window.scrollTo({ top: 0, behavior: 'smooth' });
 setTimeout(checkScrollAnimations, 100);
 }
-
 function toggleTheme() {
 var newTheme = elHtml.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
 elHtml.setAttribute('data-theme', newTheme);
@@ -226,7 +256,6 @@ function setInitialIcon() {
 if (elHtml.getAttribute('data-theme') === 'dark') { elMoon.style.display = 'none'; elSun.style.display = 'block'; }
 else { elMoon.style.display = 'block'; elSun.style.display = 'none'; }
 }
-
 function openModal(id) {
 if (id === 'settings-modal') {
 document.getElementById('toggle-lite').checked = elHtml.classList.contains('lite-mode');
@@ -236,15 +265,9 @@ document.getElementById('toggle-contrast').checked = elHtml.classList.contains('
 document.getElementById(id).classList.add('active');
 }
 function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-
 function toggleSetting(key, value) {
-var className = '';
-if (key === 'liteMode') className = 'lite-mode';
-else if (key === 'noAnim') className = 'no-anim';
-else if (key === 'highContrast') className = 'high-contrast';
-
-if (value) elHtml.classList.add(className); 
-else elHtml.classList.remove(className);
+var className = (key === 'liteMode') ? 'lite-mode' : (key === 'noAnim' ? 'no-anim' : 'high-contrast');
+if (value) elHtml.classList.add(className); else elHtml.classList.remove(className);
 try { localStorage.setItem(key, value); } catch(e) {}
 }
 
@@ -253,14 +276,11 @@ var trigger = document.getElementById('easter-egg-trigger');
 if (!trigger) return;
 var count = 0, timer = null;
 trigger.onclick = function() {
-count++;
-clearTimeout(timer);
-timer = setTimeout(function() { count = 0; }, 1500);
+count++; clearTimeout(timer); timer = setTimeout(function() { count = 0; }, 1500);
 if (count === 5) {
 var isDark = elHtml.getAttribute('data-theme') === 'dark';
 document.getElementById('modal-text').innerText = isDark ? 'Что ты тут забыл, нигга?' : 'Что ты тут забыл, белый?';
-openModal('easter-egg-modal');
-count = 0;
+openModal('easter-egg-modal'); count = 0;
 }
 };
 }
@@ -268,22 +288,19 @@ count = 0;
 function checkScrollAnimations() {
 if (!('IntersectionObserver' in window)) return;
 var observer = new IntersectionObserver(function(entries) {
-for (var i = 0; i < entries.length; i++) {
-entries[i].target.classList.toggle('is-visible', entries[i].isIntersecting);
-}
+for (var i = 0; i < entries.length; i++) entries[i].target.classList.toggle('is-visible', entries[i].isIntersecting);
 }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 var elements = document.querySelectorAll('.anim-scroll');
 for (var j = 0; j < elements.length; j++) observer.observe(elements[j]);
 }
 
-document.addEventListener('contextmenu', function(e) {
-if (e.target.tagName === 'IMG') e.preventDefault();
-});
+document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
 document.addEventListener('DOMContentLoaded', function() {
 setInitialIcon();
 setupEasterEgg();
 checkScrollAnimations();
+applyLanguage(currentLang);
 });
 </script>
 </body>
