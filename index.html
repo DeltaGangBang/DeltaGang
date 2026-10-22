@@ -3,16 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Подтверждение Google -->
 <meta name="google-site-verification" content="PYiSoTXNTOrGX1Wm54UwSFmwMYLalW_LYd_V82DhMXo" />
-<title>Delta Gang</title>
-<link rel="icon" type="image/png" sizes="32x32" href="logo-dark-border.png">
-<link rel="icon" type="image/png" sizes="192x192" href="logo-dark-border.png">
+
+<title>Delta Gang — Официальный сайт</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="logo-dark-border.png">
 <link rel="apple-touch-icon" href="logo-dark-border.png">
 
-<!-- Open Graph теги для красивого превью -->
+<!-- Open Graph для превью -->
 <meta property="og:title" content="Delta Gang — Официальный сайт" />
-<meta property="og:description" content="Рэп-группа Delta Gang. Альбом Hustle Stars, релизы, соцсети." />
+<meta property="og:description" content="Музыкальная рэп группа Delta Gang. Альбом 'Hustle Stars', релизы, социальные сети." />
 <meta property="og:image" content="https://raw.githubusercontent.com/DeltaGangBang/DeltaGang/main/logo-dark-border.png" />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://deltagangbang.github.io/DeltaGang/" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -27,28 +32,12 @@ if (localStorage.getItem('highContrast') === 'true') document.documentElement.cl
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
---bg: #ffffff; --text: #000000; --muted: #666666; --glass-bg: rgba(255,255,255,0.7); --glass-border: rgba(0,0,0,0.08);
---hover: rgba(0,0,0,0.05); --logo-border: rgba(0,0,0,0.15); --accent: #4b5563; --accent-glow: rgba(75,85,99,0.1); --card: #f8f9fa;
-}
-[data-theme="dark"] {
---bg: #09090b; --text: #f4f4f5; --muted: #a1a1aa; --glass-bg: rgba(20,20,25,0.7); --glass-border: rgba(255,255,255,0.1);
---hover: rgba(255,255,255,0.1); --logo-border: rgba(255,255,255,0.25); --accent: #9ca3af; --accent-glow: rgba(156,163,175,0.15); --card: #18181b;
-}
+:root { --bg: #ffffff; --text: #000000; --muted: #666666; --glass-bg: rgba(255,255,255,0.7); --glass-border: rgba(0,0,0,0.08); --hover: rgba(0,0,0,0.05); --logo-border: rgba(0,0,0,0.15); --accent: #4b5563; --accent-glow: rgba(75,85,99,0.1); --card: #f8f9fa; }
+[data-theme="dark"] { --bg: #09090b; --text: #f4f4f5; --muted: #a1a1aa; --glass-bg: rgba(20,20,25,0.7); --glass-border: rgba(255,255,255,0.1); --hover: rgba(255,255,255,0.1); --logo-border: rgba(255,255,255,0.25); --accent: #9ca3af; --accent-glow: rgba(156,163,175,0.15); --card: #18181b; }
 * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.4s, color 0.4s, border-color 0.4s; }
 .no-select { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; -webkit-user-drag: none; }
-body {
-font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: var(--text);
-min-height: 100vh; display: flex; flex-direction: column; align-items: center; overflow-x: hidden;
-background-image: radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 50%);
-background-repeat: no-repeat; background-attachment: fixed;
-}
-header {
-position: fixed; top: 15px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 800px;
-display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;
-background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-border: 1px solid var(--glass-border); border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); z-index: 100;
-}
+body { font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; background-image: radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 50%); background-repeat: no-repeat; background-attachment: fixed; }
+header { position: fixed; top: 15px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 800px; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); z-index: 100; }
 .nav-logo { cursor: pointer; }
 .nav-logo-text { font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: -1px; line-height: 1; }
 .nav-links { display: flex; gap: 5px; }
