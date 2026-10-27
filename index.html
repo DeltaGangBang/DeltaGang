@@ -3,12 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Подтверждение Google -->
 <meta name="google-site-verification" content="PYiSoTXNTOrGX1Wm54UwSFmwMYLalW_LYd_V82DhMXo" />
-
 <title>Delta Gang — Официальный сайт</title>
-
 <script>
 try {
 if (localStorage.getItem('theme')) document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
@@ -76,14 +72,14 @@ main { width: 100%; max-width: 800px; margin-top: 100px; padding: 20px; display:
 .album-card:hover .album-cover::after { opacity: 1; transform: scale(1); }
 .album-title { font-family: 'Unbounded', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 5px; }
 .album-year { font-size: 14px; color: var(--muted); font-weight: 600; }
-.album-notice { display: inline-block; background: var(--accent); color: var(--bg); padding: 6px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; margin-top: 10px; text-transform: uppercase; letter-spacing: 0.5px; width: fit-content; }
+.album-notice { display: inline-block; background: var(--accent); color: var(--bg); padding: 6px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; margin-top: 10px; text-transform: uppercase; letter-spacing: 0.5px; width: fit-content; line-height: 1.4; }
 .copyright { width: 100%; text-align: center; padding: 40px 0 20px 0; font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 1px; }
-.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; }
-.modal-overlay.active { display: flex; }
+.modal-overlay { display: flex; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.modal-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; }
 .modal-content { position: relative; width: 90%; max-width: 350px; padding: 35px 25px; text-align: center; background: var(--card); border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); border-radius: 30px; transform: scale(0.7); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .modal-overlay.active .modal-content { transform: scale(1); }
 .modal-content p { font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 700; margin-top: 10px; line-height: 1.4; }
-.modal-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 30px; cursor: pointer; color: var(--text); opacity: 0.5; }
+.modal-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 30px; cursor: pointer; color: var(--text); opacity: 0.5; outline: none; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
 .modal-close:hover { opacity: 1; }
 .settings-title { font-family: 'Unbounded', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 20px; text-align: left; }
 .setting-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; text-align: left; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
@@ -111,12 +107,8 @@ input:checked + .slider:before { transform: translateX(20px); }
 <a id="nav-releases" onclick="switchPage('releases')">Релизы</a>
 </div>
 <div class="header-controls">
-<button class="icon-btn lang-btn" onclick="toggleLanguage()" id="lang-btn">EN</button>
 <button class="icon-btn" onclick="openModal('settings-modal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
-<button class="icon-btn" onclick="toggleTheme()">
-<svg class="icon-moon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-<svg class="icon-sun" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-</button>
+<button class="icon-btn lang-btn" onclick="toggleLanguage()" id="lang-btn">EN</button>
 </div>
 </header>
 <main>
@@ -141,7 +133,7 @@ input:checked + .slider:before { transform: translateX(20px); }
 </div>
 <div class="bio-section anim-scroll">
 <h2 id="bio-title" class="bio-title no-select">О нас</h2>
-<p id="bio-text" class="bio-text">Delta Gang — это начинающая музыкальная рэп группа из России. За свой небольшой период существования она уже имеет небольшой альбом "Hustle Stars", выпущенный 28 октября 2026 года. Её участники подростки, которые только начинают свой музыкальный путь и которые уже готовы поделиться своими начинаниями.</p>
+<p id="bio-text" class="bio-text">Delta Gang — это начинающая музыкальная рэп-группа из России. Их первый альбом "Hustle Stars" вышел 28 октября на SoundCloud. Когда он появится на остальных стриминговых площадках, пока неизвестно.</p>
 </div>
 <div class="contact-section no-select anim-scroll"><a id="contact-btn" href="mailto:deltagangbang@gmail.com" class="email-btn">Связаться с нами</a></div>
 </div>
@@ -152,7 +144,7 @@ input:checked + .slider:before { transform: translateX(20px); }
 <div class="album-cover"><img src="cover.png" alt="Hustle Stars Cover" draggable="false" loading="lazy"></div>
 <h3 class="album-title">Hustle Stars</h3>
 <p class="album-year">2026 • Album</p>
-<div id="album-notice" class="album-notice">Заглушка (релиз 28.10)</div>
+<div id="album-notice" class="album-notice">28 октября на SoundCloud, на остальных площадках дата выхода неизвестна</div>
 </div>
 </div>
 </div>
@@ -162,6 +154,10 @@ input:checked + .slider:before { transform: translateX(20px); }
 <div class="modal-content">
 <button class="modal-close" onclick="closeModal('settings-modal')">×</button>
 <h2 class="settings-title no-select">Настройки</h2>
+<div class="setting-item">
+<div><div class="setting-label">Темная тема</div><div class="setting-desc">Переключить оформление</div></div>
+<label class="switch"><input type="checkbox" id="toggle-theme" onchange="toggleTheme()"><span class="slider"></span></label>
+</div>
 <div class="setting-item">
 <div><div class="setting-label">Легкая версия</div><div class="setting-desc">Отключает размытие и тени</div></div>
 <label class="switch"><input type="checkbox" id="toggle-lite" onchange="toggleSetting('liteMode', this.checked)"><span class="slider"></span></label>
@@ -190,21 +186,36 @@ input:checked + .slider:before { transform: translateX(20px); }
 </div>
 <script>
 document.documentElement.classList.add('js-active');
-
 var elHtml = document.documentElement;
-var elMoon = document.querySelector('.icon-moon');
-var elSun = document.querySelector('.icon-sun');
+
+// Обработчик клика по фону модальных окон
+var overlays = document.querySelectorAll('.modal-overlay');
+for (var i = 0; i < overlays.length; i++) {
+    overlays[i].addEventListener('click', function(e) {
+        // Если клик был именно по фону (а не по контенту)
+        if (e.target === this) {
+            var openTime = parseInt(this.dataset.openTime || 0);
+            var currentTime = new Date().getTime();
+            // Проверяем, что прошло больше 1 секунды (1000 мс)
+            if (currentTime - openTime >= 1000) {
+                this.classList.remove('active');
+            }
+        }
+    });
+}
 
 var translations = {
 ru: {
 navHome: "Главная", navReleases: "Релизы", bioTitle: "О нас",
-bioText: "Delta Gang — это начинающая музыкальная рэп группа из России. За свой небольшой период существования она уже имеет небольшой альбом \"Hustle Stars\", выпущенный 28 октября 2026 года. Её участники подростки, которые только начинают свой музыкальный путь и которые уже готовы поделиться своими начинаниями.",
-contactBtn: "Связаться с нами", releasesTitle: "Релизы", albumNotice: "Заглушка (релиз 28.10)", langBtn: "EN"
+bioText: "Delta Gang — это начинающая музыкальная рэп-группа из России. Их первый альбом \"Hustle Stars\" вышел 28 октября на SoundCloud. Когда он появится на остальных стриминговых площадках, пока неизвестно.",
+contactBtn: "Связаться с нами", releasesTitle: "Релизы", 
+albumNotice: "28 октября на SoundCloud, на остальных площадках дата выхода неизвестна", langBtn: "EN"
 },
 en: {
 navHome: "Home", navReleases: "Releases", bioTitle: "About Us",
-bioText: "Delta Gang is an emerging rap group from Russia. In its short existence, it already has a small album \"Hustle Stars\", released on October 28, 2026. Its members are teenagers who are just starting their musical journey and are ready to share their beginnings.",
-contactBtn: "Contact Us", releasesTitle: "Releases", albumNotice: "Placeholder (release 28.10)", langBtn: "RU"
+bioText: "Delta Gang is an emerging rap group from Russia. Their first album \"Hustle Stars\" was released on October 28 on SoundCloud. The release date for other streaming platforms is still unknown.",
+contactBtn: "Contact Us", releasesTitle: "Releases", 
+albumNotice: "October 28 on SoundCloud, release date on other platforms is unknown", langBtn: "RU"
 }
 };
 var currentLang = localStorage.getItem('lang') || 'ru';
@@ -232,26 +243,35 @@ if (target) target.classList.add('active');
 window.scrollTo({ top: 0, behavior: 'smooth' });
 setTimeout(checkScrollAnimations, 100);
 }
+
 function toggleTheme() {
-var newTheme = elHtml.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+var isDark = document.getElementById('toggle-theme').checked;
+var newTheme = isDark ? 'dark' : 'light';
 elHtml.setAttribute('data-theme', newTheme);
 try { localStorage.setItem('theme', newTheme); } catch(e) {}
-if (newTheme === 'dark') { elMoon.style.display = 'none'; elSun.style.display = 'block'; }
-else { elMoon.style.display = 'block'; elSun.style.display = 'none'; }
 }
-function setInitialIcon() {
-if (elHtml.getAttribute('data-theme') === 'dark') { elMoon.style.display = 'none'; elSun.style.display = 'block'; }
-else { elMoon.style.display = 'block'; elSun.style.display = 'none'; }
-}
+
 function openModal(id) {
+var modal = document.getElementById(id);
+if (!modal) return;
+
+// Запоминаем время открытия окна
+modal.dataset.openTime = new Date().getTime();
+
 if (id === 'settings-modal') {
+document.getElementById('toggle-theme').checked = (elHtml.getAttribute('data-theme') === 'dark');
 document.getElementById('toggle-lite').checked = elHtml.classList.contains('lite-mode');
 document.getElementById('toggle-anim').checked = !elHtml.classList.contains('no-anim');
 document.getElementById('toggle-contrast').checked = elHtml.classList.contains('high-contrast');
 }
-document.getElementById(id).classList.add('active');
+modal.classList.add('active');
 }
-function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+function closeModal(id) { 
+    var modal = document.getElementById(id);
+    if (modal) modal.classList.remove('active'); 
+}
+
 function toggleSetting(key, value) {
 var className = (key === 'liteMode') ? 'lite-mode' : (key === 'noAnim' ? 'no-anim' : 'high-contrast');
 if (value) elHtml.classList.add(className); else elHtml.classList.remove(className);
@@ -284,7 +304,6 @@ for (var j = 0; j < elements.length; j++) observer.observe(elements[j]);
 document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
 document.addEventListener('DOMContentLoaded', function() {
-setInitialIcon();
 setupEasterEgg();
 checkScrollAnimations();
 applyLanguage(currentLang);
